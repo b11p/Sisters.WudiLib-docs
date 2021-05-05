@@ -9,6 +9,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     themeConfig: {
         navbar: [
             { text: '主页', link: '/' },
+            { text: '未来', children: ['/lantu.md', 'gei-sdk-kaifazhedejianyi.md'] },
         ],
         repo: 'int-and-his-friends/Sisters.WudiLib',
         editLink: true,
