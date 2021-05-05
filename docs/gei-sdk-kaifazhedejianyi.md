@@ -47,13 +47,13 @@ SDK 只负责最基本的通信，通常不需要依赖过多外部的库，同�
 :::
 
 ### 考虑 IDE 集成
-在这种框架下开发机器人，往往需要用很多特性（Attribute）控制指令触发等。就像 VS 可以直接在 ASP.NET Core 项目中添加控制器并自动生成对应视图，框架开发者可以提供可以在 VS 等 IDE 中使用的模板，帮助 bot 开发者减少编写重复代码，快速创建项目或添加新功能等。
+在这种框架下开发机器人，往往需要用很多[特性（Attribute）](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/)控制指令触发等。就像 VS 可以直接在 ASP.NET Core 项目中添加控制器并自动生成对应视图，框架开发者可以提供可以在 VS 等 IDE 中使用的模板，帮助 bot 开发者减少编写重复代码，快速创建项目或添加新功能等。
 
 ## 泛泛的建议
 这些建议不仅仅是针对开发 SDK 或框架，而是给新晋开发者在编程中的建议。
 
-### 正确地运用 C# 语言特性
-以异步编程为例，如果一个方法不打算返回任何东西，并且它是异步的，那么它的返回值类型可以为 `void` 或 `Task`（`ValueTask` 暂且不论）。那么应该返回什么呢？官方文档 [异步返回类型 (C#)](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/async/async-return-types) 就说明了只有此方法作为事件处理器，并且这个事件处理器要求返回 `void` 时，异步方法才应该用 `void` 作为返回值，其余情况都应该用 `Task` 作为返回值。而且，返回 void 的异步方法不应引发异常，如果引发，则会导致程序故障。
+### 多读文档，正确地运用 C# 语言特性
+以异步编程为例，如果一个方法不打算返回任何东西，并且它是异步的，那么它的返回值类型可以为 `void` 或 `Task`（`ValueTask` 暂且不论）。那么应该返回什么呢？官方文档 [异步返回类型 (C#)](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/async/async-return-types) 就说明了只有此方法作为事件处理器，并且这个事件处理器要求返回 `void` 时，异步方法才应该用 `void` 作为返回值，其余情况都应该用 `Task` 作为返回值。而且，返回 `void` 的异步方法不应引发异常，如果引发，则会导致程序故障。
 
 ::: tip 私货（不是）
 WudiLib 使用 C# 的事件机制处理 OneBot 中的事件，并且要求事件处理器返回 `void` 类型，这个设计并不好。想一想，为什么？[点此查看所提及的源码](https://github.com/int-and-his-friends/Sisters.WudiLib/blob/d66504387f253b0c2d556806ff3fd4e6cd382fa8/Sisters.WudiLib/Posts/ApiPostListener.cs#L598)
@@ -65,7 +65,14 @@ WudiLib 使用 C# 的事件机制处理 OneBot 中的事件，并且要求事件
 
 ::: tip
 你能找出 `ValueTask` 的官方文档，阅读并总结出 `ValueTask` 的使用要点吗？
+
+*这部分文档翻译得不好，建议找到后阅读英文原文。*
 :::
 
 ### 多阅读优秀项目源码
 我还建议每个开发者多阅读像 [.NET runtime](https://github.com/dotnet/runtime) 这样的优秀项目的源码，学习其中的思路和思想。
+
+## 总结
+SDK 和框架的设计有相当大的自由发挥的空间，我在此只提出几点我认为无论如何设计，都应该认真考虑的建议。这是我针对在阅读其他 SDK 代码、文档，及与其开发者交流中发现的一部分常见问题提出的建议。这些建议基于我的个人经验，难免会有疏漏，再次恳请各位大佬不吝斧正。
+
+关于我对理想的 SDK 和框架的想法，会在[蓝图](lantu.md)中更新。
