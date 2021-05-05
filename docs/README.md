@@ -2,7 +2,7 @@
 title: Sisters.WudiLib
 lang: zh-CN
 ---
-# 妹妹无敌库
+# Sisters.WudiLib
 ## 介绍
 妹妹无敌库（Sisters.WudiLib）是 C# 乃至 .NET 下的 OneBot SDK，实现 .NET 平台进行 OneBot 协议通信。
 
