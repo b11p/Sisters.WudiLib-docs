@@ -7,7 +7,7 @@ lang: zh-CN
 
 ## 手动构建相应的消息段
 可以按照下面的方式构建 XML 消息。
-```
+```cs
 SendingMessage CreateXmlMessage(string xmlData)
 {
     // 构建 XML 消息段。
@@ -22,7 +22,7 @@ SendingMessage CreateXmlMessage(string xmlData)
 若要构建包含多个消息段的消息，可以对每个消息段分别构建一条消息，然后用 `+` 操作符连接。
 
 ## 用原始消息字符串构建
-```
+```cs
 var message = new RawMessage("[CQ:xml,data=<?xml ...]");
 ```
 
