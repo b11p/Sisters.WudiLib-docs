@@ -26,7 +26,7 @@ sender 和 receiver 参考现有设计即可，关键是 dispatcher，这个东�
 
 用Attribute标明每一个类的条件，比如
 
-```c#
+```cs
 [IfField("type", "message")]
 public abstract class Message : Event { } 
 ```
@@ -44,14 +44,14 @@ public abstract class Message : Event { }
 
 例如： 
 
-```c#
+```cs
 [IfField("a", "a"),IfField("b", "b")] class A : SomeBase { } 
 [IfField("a", "a"),IfField("c", "c")] class B : SomeBase { } 
 ```
 
 这就不行，因为如果上报同时包含了"a", "b", "c"，就会产生歧义。 
 
-```c#
+```cs
 [IfField("a", "a"),IfField("b", "b")] class A : SomeBase { } 
 [IfField("a", "a")] class B : SomeBase { } 
 ```
@@ -74,14 +74,14 @@ public abstract class Message : Event { }
 #### 处理事件（添加事件处理器）
 可以考虑在 dispatcher 中提供类似这样的方法来注册事件处理器。
 
-```c#
+```cs
 RegisterMessage(Func<..., Task>);
 RegisterEvent<EventType>(Func<..., Task>);
 RegisterEvent<EventType, ResponseType>(Func<..., Task<ResponseType>>);
 ```
 
 #### 事件过滤器
-```c#
+```cs
 When<EventType>(Func<..., Task<bool>/bool>).Do(..., Func<..., Task/Task<ResponseType>>);
 When<EventType>(Func<..., Task<bool>/bool>).Respond(..., Func<..., Task<ResponseType>>);
 ```
