@@ -9,7 +9,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     themeConfig: {
         navbar: [
             { text: '主页', link: '/' },
-            { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md'] },
+            { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md', '/kuozhan/tongxinfangshi.md'] },
             { text: '未来', children: ['/luxiantu.md', '/lantu.md', '/gei-sdk-kaifazhedejianyi.md'] },
         ],
         repo: 'int-and-his-friends/Sisters.WudiLib',
