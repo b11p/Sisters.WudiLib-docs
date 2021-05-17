@@ -80,6 +80,8 @@ RegisterEvent<EventType>(Func<..., Task>);
 RegisterEvent<EventType, ResponseType>(Func<..., Task<ResponseType>>);
 ```
 
+方法名考虑“Register”或“Subscribe”开头。
+
 #### 事件过滤器
 ```cs
 When<EventType>(Func<..., Task<bool>/bool>).Do(..., Func<..., Task/Task<ResponseType>>);

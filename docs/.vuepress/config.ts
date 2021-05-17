@@ -9,6 +9,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     themeConfig: {
         navbar: [
             { text: '主页', link: '/' },
+            { text: '指南', children: ['/zhinan/kuaisushangshou.md'] },
             { text: '通信方式', children: ['/tongxinfangshi/README.md', '/tongxinfangshi/README.md#HTTP-和-HTTP-POST', '/tongxinfangshi/zhengxiang-websocket.md', '/tongxinfangshi/fanxiang-websocket.md'] },
             { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md', '/kuozhan/tongxinfangshi.md'] },
             { text: '未来', children: ['/luxiantu.md', '/lantu.md', '/gei-sdk-kaifazhedejianyi.md'] },
