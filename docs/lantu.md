@@ -7,6 +7,9 @@ lang: zh-CN
 
 ## 总结 WudiLib
 ### WudiLib 的优点
+WudiLib 在设计时预留了一定的接口，使得使用者可以根据需要进行扩展，并且可以适应较为广泛的应用场景。
+
+没有引入无意义的依赖，也没有显著浪费资源的代码。
 
 ### WudiLib 的不足
 #### 类名、API 名设计不佳
@@ -87,5 +90,8 @@ RegisterEvent<EventType, ResponseType>(Func<..., Task<ResponseType>>);
 When<EventType>(Func<..., Task<bool>/bool>).Do(..., Func<..., Task/Task<ResponseType>>);
 When<EventType>(Func<..., Task<bool>/bool>).Respond(..., Func<..., Task<ResponseType>>);
 ```
+
+### 反向 WebSocket 通信方式
+反向 WebSocket 通信应该可以正确处理多个连接的情况，甚至应该支持在不同的连接上启用不同的功能。
 
 ## 框架设计
