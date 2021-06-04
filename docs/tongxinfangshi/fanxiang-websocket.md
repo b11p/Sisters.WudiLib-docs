@@ -69,6 +69,56 @@ while (true)
 :::
 
 ## 鉴权认证
+WudiLib 支持对反向 WebSocket 连接进行认证，并内置了通过 Access Token 和/或 Self ID（即机器人 QQ 号）进行认证。
+
+要进行鉴权认证，只需要在配置方法中添加 Access Token 和 Self ID 两个参数即可。
+
+```cs
+var reverseWSServer = new ReverseWebSocketServer("http://localhost:9191");
+reverseWSServer.SetListenerAuthenticationAndConfiguration((listener, selfId) =>
+{
+    // Configuration code.
+}, "your-access-token", 123456789);
+reverseWSServer.Start();
+```
+
+当按此鉴权时，只接受 QQ 为 123456789，并且 Access Token 配置为“your-access-token”的机器人连接。其中两个参数可以分别设置为 `null`，表示跳过这一项，例如只验证 QQ 号或者 Access Token。
 
 ## 高级鉴权及配置
+WudiLib 的强大之处在于，你可以自定义鉴权过程，并且根据不同的鉴权结果进行不同的配置。例如：
 
+```cs
+using System.Net;
+
+var reverseWSServer = new ReverseWebSocketServer("http://localhost:9191");
+HttpApiClient onebotApi = null;
+reverseWSServer.SetListenerAuthenticationAndConfiguration(async request =>
+{
+    IPAddress[] allowedIPAddress = await GetAllowedIPAddress();
+    if (allowedIPAddress.Contains(request.RemoteEndPoint.Address))
+    {
+        // allow
+        return (listener, selfId) =>
+        {
+            // Configuration code.
+        };
+    }
+    else
+    {
+        // deny
+        return null;
+        // Or you can return another configuration.
+        //return (listener, selfId) =>
+        //{
+        //    // Configure for only basic functions.
+        //};
+    }
+});
+reverseWSServer.Start();
+```
+
+运行这段代码，WudiLib 会在收到连接时执行验证。如果连接的 IP 在允许列表中，就允许连接并进行配置；否则就拒绝连接（也可以进行另一种配置）。高级鉴权可以和简单鉴权结合使用，此时 WudiLib 会先验证 Access Token 和 Self ID 是否吻合，然后再执行自定义的认证和配置。
+
+::: tip
+进行自定义鉴证应传入一个异步委托，这是为了便于从数据库等地方读取认证信息。
+:::
