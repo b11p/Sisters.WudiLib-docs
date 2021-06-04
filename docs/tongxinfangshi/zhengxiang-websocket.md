@@ -58,5 +58,58 @@ cqWebSocketEvent.GroupInviteEvent += (api, e) =>
 与正向 WebSocket API 客户端不同，事件上报需要手动开启监听，并且会自动重连。是否丢失重连过程中的事件取决于 OneBot 实现。
 :::
 
+## 示例
+此示例包含了简单的事件监听和处理，并观察 WudiLib 正向 WebSocket 的特点。
+```C#
+var cqWebSocketEvent = new CqHttpWebSocketEvent(
+    "wss://your-ws-address/event",
+    "your-access-token"); // 创建 WebSocket 事件监听客户端。
+var httpApiClient = new CqHttpWebSocketApiClient(
+    "wss://your-ws-address/event",
+    "your-access-token"); // 创建 HTTP 通信客户端。
+cqWebSocketEvent.ApiClient = httpApiClient;
+
+// 订阅事件。
+cqWebSocketEvent.MessageEvent += (api, e) =>
+{
+    Console.WriteLine(e.Content.Text);
+};
+cqWebSocketEvent.FriendRequestEvent += (api, e) =>
+{
+    return true;
+};
+cqWebSocketEvent.GroupInviteEvent += (api, e) =>
+{
+    return true;
+}; // 可以通过 return 的方式响应请求，与使用 HTTP 时没有差别。
+
+// 每秒打印 WebSocket 状态。
+Task.Run(async () =>
+{
+    while (true)
+    {
+        await Task.Delay(1000);
+        Console.WriteLine("Available: {0}, Listening {1}", cqWebSocketEvent.IsAvailable, cqWebSocketEvent.IsListening);
+    }
+});
+
+// 连接前等待 3 秒观察状态。
+Task.Delay(TimeSpan.FromSeconds(3)).Wait();
+
+// 连接（开始监听上报）。
+var cancellationTokenSource = new CancellationTokenSource();
+cqWebSocketEvent.StartListen(cancellationTokenSource.Token); // 首次连接必须成功。
+
+// 按下回车会在 2 秒后断开，再过 3 秒使用新的 CancellationTokenSource 重连。
+// 您可以先断开网络，观察自动重连，再继续执行后面的代码。
+Console.ReadLine();
+cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(2));
+Task.Delay(TimeSpan.FromSeconds(5)).Wait();
+cancellationTokenSource.Dispose();
+cancellationTokenSource = new CancellationTokenSource();
+cqWebSocketEvent.StartListen(cancellationTokenSource.Token);
+Task.Delay(-1).Wait();
+```
+
 ## 与 HTTP 方式配合
 正向 WebSocket 可以和 HTTP/HTTP POST 通信方式任意组合。
