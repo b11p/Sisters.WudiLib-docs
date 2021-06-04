@@ -60,7 +60,7 @@ cqWebSocketEvent.GroupInviteEvent += (api, e) =>
 
 ## 示例
 此示例包含了简单的事件监听和处理，并观察 WudiLib 正向 WebSocket 的特点。
-```C#
+```cs
 var cqWebSocketEvent = new CqHttpWebSocketEvent(
     "wss://your-ws-address/event",
     "your-access-token"); // 创建 WebSocket 事件监听客户端。
