@@ -1,12 +1,16 @@
 ---
 title: 快速上手
 lang: zh-CN
+sidebar:
+  - isGroup: true
+    text: 指南
+    children: ['/zhinan/kuaisushangshou.md', '/zhinan/jinjie-wudilib.md']
 ---
 # 快速上手
 本页将指导您快速使用 go-cqhttp 建立起可以简单回应消息的机器人。
 
 ## 准备 go-cqhttp
-下载最新版本的 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp/releases/tag/v1.0.0-beta3)，然后运行，此时 go-cqhttp 将会生成配置文件并退出。打开生成的配置文件，按以下说明修改。
+下载最新版本的 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp/releases)，然后运行，此时 go-cqhttp 将会生成配置文件并退出。打开生成的配置文件，按以下说明修改。
 
 在 `account` 节的 `uin` 和 `password` 字段填入机器人 QQ 号和密码。
 
@@ -89,3 +93,6 @@ await Task.Delay(-1); // 阻止程序退出。
 ```
 
 此时，我们已经配置好了处理器。运行程序并向 bot 发消息测试，当 bot 收到内容为“hello”的消息时，就会回复“Hello, WudiLib!”。
+
+## 进阶内容
+请前往[进阶 WudiLib](jinjie-wudilib.md) 继续学习。
