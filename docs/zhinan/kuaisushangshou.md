@@ -74,7 +74,7 @@ public static async Task OnMessageAsync(HttpApiClient api, MessageContext messag
 ```
 
 ::: tip
-由于 `Sisters.WudiLib.Message` 与 `Sisters.WudiLib.Posts.Message` 常常出现命名冲突，同时 `Sisters.WudiLib.SendingMessage` 也是比 `Sisters.WudiLib.Message` 更常用的类，此处使用 *[using 别名指令](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/using-directive)*导入了这两个类。
+由于 `Sisters.WudiLib.Message` 与 `Sisters.WudiLib.Posts.Message` 常常出现命名冲突，同时 `Sisters.WudiLib.SendingMessage` 也是比 `Sisters.WudiLib.Message` 更常用的类，此处使用 [*using 别名指令*](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/using-directive)导入了这两个类。
 :::
 
 然后在 `Main` 方法中继续添加下列代码。
