@@ -34,4 +34,19 @@ export default defineUserConfig<DefaultThemeOptions>({
         backToHome: '返回首页',
         openInNewWindow: '在新窗口打开',
     },
+
+    plugins: [
+        ['@vuepress/pwa'],
+        [
+            '@vuepress/plugin-pwa-popup',
+            {
+                locales: {
+                    '/': {
+                        message: '发现新内容可用',
+                        buttonText: '刷新',
+                    },
+                },
+            },
+        ],
+    ],
 })
