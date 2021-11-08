@@ -12,7 +12,7 @@ lang: zh-CN
 
 ```cs
 var httpApiClient = new CqHttpWebSocketApiClient(
-    "ws://your-ws-address/event",
+    "ws://your-ws-address/api",
     "your-access-token"); // 创建正向 WebSocket 通信客户端。
 ```
 
