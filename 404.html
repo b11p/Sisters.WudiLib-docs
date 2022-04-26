@@ -3,13 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="generator" content="VuePress 2.0.0-beta.26">
+    <meta name="generator" content="VuePress 2.0.0-beta.41">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
     <title>Sisters.WudiLib</title><meta name="description" content=".NET 平台 OneBot 通信框架">
-    <link rel="preload" href="/assets/js/runtime~app.81f88168.js" as="script"><link rel="preload" href="/assets/css/styles.a7d6e551.css" as="style"><link rel="preload" href="/assets/js/519.345b837d.js" as="script"><link rel="preload" href="/assets/js/app.e909dc43.js" as="script">
-    <link rel="stylesheet" href="/assets/css/styles.a7d6e551.css">
+    <link rel="modulepreload" href="/assets/app.4da2a9fc.js"><link rel="modulepreload" href="/assets/404.html.fb9ddecd.js"><link rel="modulepreload" href="/assets/404.html.93146c89.js"><link rel="prefetch" href="/assets/index.html.8b19fe59.js"><link rel="prefetch" href="/assets/gei-sdk-kaifazhedejianyi.html.432c8d18.js"><link rel="prefetch" href="/assets/lantu.html.6053ee99.js"><link rel="prefetch" href="/assets/luxiantu.html.6d4561ca.js"><link rel="prefetch" href="/assets/API.html.60be86f2.js"><link rel="prefetch" href="/assets/CQ-ma.html.b605595d.js"><link rel="prefetch" href="/assets/index.html.cbd12477.js"><link rel="prefetch" href="/assets/shijian.html.74b158e9.js"><link rel="prefetch" href="/assets/tongxinfangshi.html.1170af00.js"><link rel="prefetch" href="/assets/index.html.cbb335a2.js"><link rel="prefetch" href="/assets/fanxiang-websocket.html.441c9beb.js"><link rel="prefetch" href="/assets/http.html.dcac3038.js"><link rel="prefetch" href="/assets/zhengxiang-websocket.html.2c1e6eed.js"><link rel="prefetch" href="/assets/jinjie-wudilib.html.e815d2fb.js"><link rel="prefetch" href="/assets/kuaisushangshou.html.3014e90b.js"><link rel="prefetch" href="/assets/index.html.25c5c642.js"><link rel="prefetch" href="/assets/gei-sdk-kaifazhedejianyi.html.2729ef97.js"><link rel="prefetch" href="/assets/lantu.html.f98fa7d7.js"><link rel="prefetch" href="/assets/luxiantu.html.5a2c17bd.js"><link rel="prefetch" href="/assets/API.html.8db4b124.js"><link rel="prefetch" href="/assets/CQ-ma.html.cee854c7.js"><link rel="prefetch" href="/assets/index.html.83a114ed.js"><link rel="prefetch" href="/assets/shijian.html.1f09226d.js"><link rel="prefetch" href="/assets/tongxinfangshi.html.3a7a6148.js"><link rel="prefetch" href="/assets/index.html.527671e7.js"><link rel="prefetch" href="/assets/fanxiang-websocket.html.32a56f16.js"><link rel="prefetch" href="/assets/http.html.b9881d49.js"><link rel="prefetch" href="/assets/zhengxiang-websocket.html.4e0f23cc.js"><link rel="prefetch" href="/assets/jinjie-wudilib.html.b7db1ae8.js"><link rel="prefetch" href="/assets/kuaisushangshou.html.194688f7.js"><link rel="prefetch" href="/assets/404.2cb16b92.js"><link rel="prefetch" href="/assets/Layout.11c08742.js">
+    <link rel="stylesheet" href="/assets/style.c880abed.css">
   </head>
   <body>
-    <div id="app"><!--[--><div class="theme-container"><div class="theme-default-content"><h1>404</h1><blockquote>这里什么都没有。</blockquote><a href="/" class="">返回首页</a></div></div><!----><!----><!--]--></div>
-    <script src="/assets/js/runtime~app.81f88168.js" defer></script><script src="/assets/js/519.345b837d.js" defer></script><script src="/assets/js/app.e909dc43.js" defer></script>
+    <div id="app"><!--[--><div class="theme-container"><div class="theme-default-content"><h1>404</h1><blockquote>That&#39;s a Four-Oh-Four.</blockquote><a href="/" class="">Take me home</a></div></div><!----><!--]--></div>
+    <script type="module" src="/assets/app.4da2a9fc.js" defer></script>
   </body>
 </html>

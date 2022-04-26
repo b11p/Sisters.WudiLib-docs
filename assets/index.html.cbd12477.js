@@ -1,0 +1,1 @@
+const e={key:"v-3351a088",path:"/kuozhan/",title:"\u6269\u5C55\u6982\u8FF0",lang:"zh-CN",frontmatter:{title:"\u6269\u5C55\u6982\u8FF0",lang:"zh-CN"},excerpt:"",headers:[],git:{updatedTime:1650977736e3,contributors:[{name:"bleatingsheep",email:"bleatingsheep@live.cn",commits:1}]},filePathRelative:"kuozhan/README.md"};export{e as data};
