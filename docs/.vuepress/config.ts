@@ -11,7 +11,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             { text: '主页', link: '/' },
             { text: '指南', children: ['/zhinan/kuaisushangshou.md', '/zhinan/jinjie-wudilib.md'] },
             { text: '通信方式', children: ['/tongxinfangshi/README.md', '/tongxinfangshi/http.md', '/tongxinfangshi/zhengxiang-websocket.md', '/tongxinfangshi/fanxiang-websocket.md'] },
-            { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md', '/kuozhan/tongxinfangshi.md'] },
+            { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md', '/kuozhan/tongxinfangshi.md', '/kuozhan/shijian.md'] },
             { text: '未来', children: ['/luxiantu.md', '/lantu.md', '/gei-sdk-kaifazhedejianyi.md'] },
         ],
         repo: 'int-and-his-friends/Sisters.WudiLib',

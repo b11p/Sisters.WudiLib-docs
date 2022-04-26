@@ -3,7 +3,7 @@ title: 扩展通信方式
 lang: zh-CN
 ---
 # 扩展 WudiLib 通信方式
-目前 WudiLib 已支持 OneBot 全部通信方式。但是，如果您
+目前 WudiLib 已支持 OneBot 全部通信方式。如果您想继续扩展，也是可以做到的。
 
 ## 扩展 API 通信方式
 扩展 API 通信方式非常简单，只需要继承 `HttpApiClient` 类，然后重写 `CallRawAsync` 和/或 `CallRawJObjectAsync` 方法即可。
