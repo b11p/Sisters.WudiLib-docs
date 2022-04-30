@@ -41,7 +41,7 @@ export default defineUserConfig({
     bundler: viteBundler(),
 
     plugins: [
-        pwaPlugin,
+        pwaPlugin({}),
         pwaPopupPlugin({
             locales: {
                 '/': {
