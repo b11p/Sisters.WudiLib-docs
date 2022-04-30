@@ -1,12 +1,15 @@
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
+import { defineUserConfig } from '@vuepress/cli'
+import { defaultTheme } from '@vuepress/theme-default'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { pwaPlugin } from '@vuepress/plugin-pwa'
+import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup'
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
     lang: 'zh-CN',
     title: 'Sisters.WudiLib',
     description: '.NET 平台 OneBot 通信框架',
 
-    themeConfig: {
+    theme: defaultTheme({
         navbar: [
             { text: '主页', link: '/' },
             { text: '指南', children: ['/zhinan/kuaisushangshou.md', '/zhinan/jinjie-wudilib.md'] },
@@ -33,20 +36,19 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
         backToHome: '返回首页',
         openInNewWindow: '在新窗口打开',
-    },
+    }),
+
+    bundler: viteBundler(),
 
     plugins: [
-        ['@vuepress/pwa'],
-        [
-            '@vuepress/plugin-pwa-popup',
-            {
-                locales: {
-                    '/': {
-                        message: '发现新内容可用',
-                        buttonText: '刷新',
-                    },
+        pwaPlugin,
+        pwaPopupPlugin({
+            locales: {
+                '/': {
+                    message: '发现新内容可用',
+                    buttonText: '刷新',
                 },
             },
-        ],
+        }),
     ],
 })
