@@ -41,14 +41,5 @@ export default defineUserConfig({
     bundler: viteBundler(),
 
     plugins: [
-        pwaPlugin({}),
-        pwaPopupPlugin({
-            locales: {
-                '/': {
-                    message: '发现新内容可用',
-                    buttonText: '刷新',
-                },
-            },
-        }),
     ],
 })
