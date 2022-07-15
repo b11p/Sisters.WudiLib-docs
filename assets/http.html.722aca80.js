@@ -1,1 +1,0 @@
-const t={key:"v-ef46f01c",path:"/tongxinfangshi/http.html",title:"HTTP \u548C HTTP POST",lang:"zh-CN",frontmatter:{title:"HTTP \u548C HTTP POST",lang:"zh-CN"},excerpt:"",headers:[],git:{},filePathRelative:"tongxinfangshi/http.md"};export{t as data};

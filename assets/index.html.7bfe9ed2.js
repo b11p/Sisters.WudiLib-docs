@@ -1,1 +1,0 @@
-const t={key:"v-3351a088",path:"/kuozhan/",title:"\u6269\u5C55\u6982\u8FF0",lang:"zh-CN",frontmatter:{title:"\u6269\u5C55\u6982\u8FF0",lang:"zh-CN"},excerpt:"",headers:[],git:{},filePathRelative:"kuozhan/README.md"};export{t as data};
