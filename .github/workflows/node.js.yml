@@ -37,31 +37,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vuepress/dist
-    - name: Deploy using SSH
-      uses: appleboy/ssh-action@master
-      env:
-        DEPLOY_DIR: /home/${{ secrets.SSH_USERNAME }}/www/wudilib.b11p.com
-        BRANCH: gh-pages
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REPO_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: DEPLOY_DIR,BRANCH,TOKEN,REPO_URL
-        script_stop: true
-        script: |
-          mkdir -p $DEPLOY_DIR
-          cd $DEPLOY_DIR
-          git init
-          if git remote | grep -q -P '^b11p-git-pages$'; then
-              echo "Cleaning old remote"
-              git remote remove b11p-git-pages
-          fi
-          git remote add -t $BRANCH b11p-git-pages $REPO_URL
-          git fetch -v --set-upstream b11p-git-pages --depth 1 --auto-gc
-          git reset --hard remotes/b11p-git-pages/$BRANCH --
-          git reflog expire --expire-unreachable=all --all --verbose
-          git gc --prune=all
-          git remote remove b11p-git-pages
