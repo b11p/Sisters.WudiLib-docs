@@ -20,7 +20,7 @@ export default defineUserConfig({
         repo: 'int-and-his-friends/Sisters.WudiLib',
         editLink: true,
         editLinkText: '在 GitHub 上编辑此页',
-        lastUpdated: false,
+        lastUpdated: true,
         contributors: false,
         docsRepo: 'b11p/Sisters.WudiLib-docs',
         docsBranch: 'main',
