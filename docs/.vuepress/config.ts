@@ -1,8 +1,6 @@
 import { defineUserConfig } from '@vuepress/cli'
 import { defaultTheme } from '@vuepress/theme-default'
 import { viteBundler } from '@vuepress/bundler-vite'
-import { pwaPlugin } from '@vuepress/plugin-pwa'
-import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup'
 
 export default defineUserConfig({
     lang: 'zh-CN',
@@ -13,10 +11,51 @@ export default defineUserConfig({
         navbar: [
             { text: '主页', link: '/' },
             { text: '指南', children: ['/zhinan/kuaisushangshou.md', '/zhinan/jinjie-wudilib.md'] },
-            { text: '通信方式', children: ['/tongxinfangshi/README.md', '/tongxinfangshi/http.md', '/tongxinfangshi/zhengxiang-websocket.md', '/tongxinfangshi/fanxiang-websocket.md'] },
-            { text: '扩展 WudiLib', children: ['/kuozhan/README.md', '/kuozhan/API.md', '/kuozhan/CQ-ma.md', '/kuozhan/tongxinfangshi.md', '/kuozhan/shijian.md'] },
+            {
+                text: '通信方式',
+                children: [
+                    {
+                        text: "概述",
+                        link: '/tongxinfangshi/README.md',
+                        activeMatch: "^/tongxinfangshi/$",
+                    },
+                    '/tongxinfangshi/http.md',
+                    '/tongxinfangshi/zhengxiang-websocket.md',
+                    '/tongxinfangshi/fanxiang-websocket.md',
+                ]
+            },
+            {
+                text: '扩展 WudiLib',
+                children: [
+                    {
+                        text: "概述",
+                        link: '/kuozhan/README.md',
+                        activeMatch: "^/kuozhan/$",
+                    },
+                    '/kuozhan/API.md',
+                    '/kuozhan/CQ-ma.md',
+                    '/kuozhan/tongxinfangshi.md',
+                    '/kuozhan/shijian.md',
+                ]
+            },
             { text: '未来', children: ['/luxiantu.md', '/lantu.md', '/gei-sdk-kaifazhedejianyi.md'] },
         ],
+        sidebar:
+        {
+            "/tongxinfangshi/": [
+                '/tongxinfangshi/',
+                '/tongxinfangshi/http.md',
+                '/tongxinfangshi/zhengxiang-websocket.md',
+                '/tongxinfangshi/fanxiang-websocket.md',
+            ],
+            "/kuozhan/": [
+                '/kuozhan/README.md',
+                '/kuozhan/API.md',
+                '/kuozhan/CQ-ma.md',
+                '/kuozhan/tongxinfangshi.md',
+                '/kuozhan/shijian.md',
+            ]
+        },
         repo: 'int-and-his-friends/Sisters.WudiLib',
         editLink: true,
         editLinkText: '在 GitHub 上编辑此页',
